@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="css/users.css">
+{% endblock style %}
+
+{% block title %}
+	<title>Cadastre-se e concorra</title>
+{% endblock title %}
+
+{% block content %}
+	{% block menu %}
+		{% include 'partials/menu.html'%}	
+	{% endblock menu %}
+
+	<main class="container">
+
+		<h1 class="display-4 text-center">Faça seu cadastro abaixo e participe</h1>
+
+		<form action="/" method="post">
+			<fieldset>
+				<div class="field">
+					<label for="name" class="lead">Nome</label>
+					<input type="text" name="name" placeholder="Digite seu nome" class="form-control">
+				</div>
+
+				<div class="field">
+					<label for="email" class="lead">E-mail</label>
+					<input type="email" name="email" placeholder="Digite seu email" class="form-control">
+				</div>
+
+				<div class="field">
+					<label for="phone" class="lead">Celular</label>
+					<input type="number" name="phone" placeholder="Digite seu celular com DDD" class="form-control">
+				</div>
+			</fieldset>
+			
+			<fieldset>
+				<h2 class="display-4 text-center">Escolha seus números</h2>
+				<h3 class="text-center">Números disponíveis {{total}}</h3>
+
+				<div id="numbers" >
+
+					{% for numbers in numbers %}
+						{% if numbers.numbers.length < 3 %} 
+							<button type="button" id="{{numbers.numbers}}" class="number" onclick="handleSelectedNumbers(this)">
+							0{{numbers.numbers}}
+							</button>
+						{% else %} 
+							<button type="button" id="{{numbers.numbers}}" class="number" onclick="handleSelectedNumbers(this)">
+							{{numbers.numbers}}</button> 
+						{% endif %}
+
+					{% endfor %}
+
+					<h1>Números reservados {{reservedTotal}}</h1>
+					
+					{% for reserved in reserved %}
+						{% if reserved.reserved.length < 3 %} 
+							<button type="button" id="{{reserved.id}}" class="reserved">
+							0{{reserved.number}}
+							</button>
+						{% else %} 
+							<button type="button" id="{{reserved.id}}" class="reserved">
+							{{reserved.number}}</button> 
+						{% endif %}
+
+					{% endfor %}
+				
+				</div>
+				<input type="hidden" name="numbers">
+			</fieldset>			
+			
+			<button type="submit" class="btn btn-success">Concluir cadastro</button>
+		</form>
+
+	</main>
+
+	{% block footer %}
+		{% include 'partials/footer.html'%}
+	{% endblock footer %}
+{% endblock content %}
+
+{% block script %}
+	<script src="js/create-user.js"></script>
+{% endblock script %}
+        
+

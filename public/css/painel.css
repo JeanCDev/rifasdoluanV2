@@ -1,0 +1,11 @@
+.email, .phone {
+    display: none;
+}
+
+h1.lead {
+    font-size: 40px;
+}
+
+.modal-body p{
+    border-bottom: 1px solid #5c5c5c;
+}

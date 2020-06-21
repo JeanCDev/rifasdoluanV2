@@ -1,0 +1,18 @@
+{
+  "name": "rifasdoluan",
+  "version": "1.0.0",
+  "description": "Site de rifas do luan",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "author": "Jean Carlos Gomes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0",
+    "nodemon": "^2.0.4",
+    "nunjucks": "^3.2.1",
+    "sqlite3": "^4.2.0"
+  }
+}

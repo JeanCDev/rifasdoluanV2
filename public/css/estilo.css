@@ -1,0 +1,157 @@
+/* Principais*/
+#nav-top{
+    background: url(../img/nav-bg.jpg) no-repeat;
+    background-size: cover;
+}
+
+#presentation{
+    width: 100%;
+    background-repeat:  no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+#presentation::after{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url(../img/presentation-bg.jpg);
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    content: "";
+}
+
+#parallax, #parallax::after{
+    height: 600px
+}
+
+#parallax{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid #cbffff;
+    border-top: 5px solid #75d2e6;
+}
+
+#parallax::after{
+    width: 100%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    background-image: url(../img/moto1-edit-filtro.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.5;
+    content: "";
+}
+
+.fixed-top{
+    background-color: #f1f1f1
+}
+
+.faq{
+    max-width: 960px;
+    background-color: #eeeeee;
+    margin: 40px 5%;
+    border-radius: 50px;
+    padding-top: 20px;
+    box-shadow: #000 10px 10px 10px;
+    -webkit-box-shadow: #000 10px 10px 10px;
+}
+
+#galery{
+    background-color: #eeeeee;
+    border-bottom: 5px solid #9293e3;
+    border-top: 5px solid #cae49c;
+}
+
+#create{
+    display: flex;
+    align-items: center;
+    height: 900px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(../img/moto3-edit-filtro.png);
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+
+#user-join{
+    margin: 0;
+    border: 5px solid #000;
+    border-radius: 50px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.create-title{
+    border-bottom: 5px solid #000;
+    display: flex;
+}
+
+.form-group input{
+    margin-bottom: 10px;
+}
+
+#main-link li a{
+    color: #000;
+}
+
+#main-link li a:hover, #main-link li a:active{
+    color: #eee;
+}
+
+/* Botões */
+#btn-parallax, .btn-presentation{
+    border-radius: 20px;
+    text-shadow: #000 3px 3px 3px;
+    box-shadow: #000 5px 5px 15px;
+    -webkit-box-shadow: #000 5px 5px 15px;
+}
+
+.btn-presentation-group{
+     margin-top: 40px   
+}
+
+/* Slides */
+#second-slider{
+    overflow: auto;
+}
+
+#first-slider{
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+
+@media (min-width: 768px){
+    
+    #first-slider{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    #slider-controls{
+        margin-bottom: 120px;
+    }
+}
+
+@media(min-width: 992px){
+    #slider-controls{
+        margin-bottom: 20px;
+    }
+}
+
+
+

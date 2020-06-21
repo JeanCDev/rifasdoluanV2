@@ -1,0 +1,177 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+        {% block menu %}
+            {% include 'partials/menu.html' %}
+        {% endblock menu %}
+
+        <main class="" id="main">
+            <section class="bg-dark text-light" id="presentation">
+                <div class="container py-5">
+                    <div class="row pt-5" id="presentation-content">
+                        <div class="col-12 col-md-5 d-flex align-items-center justify-content-left">
+                            <div>
+                                <h1 class="display-4">Quer Ter a chance de ganhar uma moto?</h1>
+                                <p class="lead">Ganhe uma Cg-125, participando de nossa rifa hoje mesmo! É muito simples participar. Venha concorrer você também!
+                                    <i style="color: yellow; font-size: 30px" class="fas fa-smile-wink"></i>
+                                </p>
+
+                                <div class="container btn-presentation-group">
+                                    <a href="#know-more" class="col-12 btn btn-lg btn-info btn-presentation">Saiba mais</a>
+                                    <a href="#create" class="col-12 mt-4 btn-lg btn btn-success btn-presentation">Participe</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel d-flex align-items-center slide col-12 offset-md-1 col-md-6" data-ride="carousel" id="first-slider">
+                            <!-- indicadores -->
+                            <ol class="carousel-indicators" data-target="#first-slider" id="slider-controls">
+                                <li data-target="#first-slider" class="active" data-slide-to="0"></li>
+                                <li data-target="#first-slider" data-slide-to="1"></li>
+                                <li data-target="#first-slider" data-slide-to="2"></li>
+                                <li data-target="#first-slider" data-slide-to="3"></li>
+                            </ol>
+
+                            <div class="carousel-inner">
+                                <img src="img/moto1-edit.png" class="img-thumbnail rounded img-fluid carousel-item active" alt="CG-125 de frente e pela direita">
+                                <img src="img/moto3-edit.png" class="img-thumbnail rounded img-fluid carousel-item" alt="CG-125 de frente e pela esquerda">
+                                <img src="img/moto5-edit.png" class="img-thumbnail rounded img-fluid carousel-item" alt="CG-125 de trás e pela esquerda">
+                                <img src="img/moto7-edit.png" class="img-thumbnail rounded img-fluid carousel-item" alt="CG-125 de trás e pela direita">
+                            </div>
+
+                            <!-- controles -->
+                            <a href="#first-slider" class="carousel-control-next" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                            <a href="#first-slider" class="carousel-control-prev" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="parallax">
+                <a href="#" class="btn btn-lg btn-success" id="btn-parallax">Não perca essa oportunidade</a>
+            </section>
+
+            <section id="know-more" class="bg-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="faq container">
+                            <h2 class="display-4 text-center">Como funciona?</h2>
+                            <p class="lead mb-5">Para participar, basta fazer seu cadastro, escolher a forma de pagamento e aguardar o dia do sorteio para saber se foi o felizardo ganhador.</p>
+
+                            <h2 class="display-4 text-center">Quanto custa?</h2>
+                            <p class="lead mb-5">Cada número sai por apenas
+                                <b>20 reais</b>
+                                e você pode escolhar quantos quiser para aumentar suas chances de ganhar.</p>
+
+                            <h2 class="display-4 text-center">Quais as formas de pagamento?</h2>
+                            <p class="lead mb-5">Você pode escolhar entre tranferência ou solicitar a emissão de um boleto para o depósito do valor de suas rifas.</p>
+
+                            <h2 class="display-4 text-center">Quando será feito o sorteio</h2>
+                            <p class="lead mb-5">O sorteio erá feito no dia
+                                <span style="color: red">(Ainda não sei o dia)</span>
+                                e será realizado através de um live no facebook, mas não se preocupe, pois avisaremos o ganhador através de mensagem no WhatsApp e e-mail.</p>
+
+                            <h2 class="display-4 text-center">E se eu morar em outra cidade?</h2>
+                            <p class="lead mb-5">Se você morar em outra cidade, pode solicitar o prêmio no valor da moto, e o mesmo será enviado para você por transferência bancária. O valor do prêmio em dinheiro será de
+                                <span style="color: green">R$ 3500,00</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="galery" class="pt-5 pb-5">
+                <div class="container">
+                    <h3 class="display-4 text-center mb-4">Galeria</h3>
+                    <div class="carousel slide" id="second-slider" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <img class="img-thumbnail rounded img-fluid carousel-item active" src="img/moto1.jpeg" alt="CG-125 de frente e pela direita">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto2.jpeg" alt="CG-125 de frente e pela esquerda">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto3.jpeg" alt="CG-125 de trás e pela esquerda">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto4.jpeg" alt="CG-125 de trás e pela direita">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto5.jpeg" alt="CG-125 de frente e pela direita">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto6.jpeg" alt="CG-125 de frente e pela esquerda">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto7.jpeg" alt="CG-125 de trás e pela esquerda">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto8.jpeg" alt="CG-125 de trás e pela direita">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto9.jpeg" alt="CG-125 de frente e pela direita">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto10.jpeg" alt="CG-125 de frente e pela esquerda">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto11.jpeg" alt="CG-125 de trás e pela esquerda">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto12.jpeg" alt="CG-125 de trás e pela direita">
+                            <img class="img-thumbnail rounded img-fluid carousel-item" src="img/moto13.jpeg" alt="CG-125 de trás e pela direita">
+                        </div>
+
+                        <!-- controles -->
+                        <a href="#second-slider" class="carousel-control-next" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                        <a href="#second-slider" class="carousel-control-prev" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="create">
+                <div class="container">
+                    <div class="row bg-light" id="user-join">
+                        <div class="create-title text-center">
+                            <h3 class="display-3 text-center">Faça seu cadastro agora mesmo</h3>
+                        </div>
+                        <div class=""></div>
+                        <h3 class="display-4 text-center">Não perca a chance de participar</h3>
+
+                        <div class="form-group mt-4 row d-flex justify-content-center" id="form-user">
+
+                            <input type="text" name="name" id="user-name" placeholder="Digite seu nome" class="form-control col-8">
+
+                            <input type="email" name="email" id="user-email" placeholder="Digite seu email" class="form-control col-8">
+
+                            <input type="number" name="phone" id="user-phone" placeholder="Digite seu celular" class="form-control col-8">
+
+                            <button class="btn btn-lg btn-success col-8" onclick="openModal()">Cadastrar-se</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body" id="modal-body">
+                            <!--<span class="number ml-1">
+                            </span>
+                            <span class="number ml-1">
+                                <label class="">
+                                    <input type="checkbox" class="check" name="numbers" value="001">
+                                    001
+                                </label>
+                            </span>
+                            <span class="number ml-1">
+                                <label class="">
+                                    <input type="checkbox" class="check" name="numbers" value="002">
+                                    002
+                                </label>
+                            </span>-->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success" onclick="saveClient()">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        {% block footer %}
+            {% include 'partials/footer.html' %}
+        {% endblock footer %}
+{% endblock content %}
