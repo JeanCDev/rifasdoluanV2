@@ -13,6 +13,7 @@ body{
 
 main{
     background-color: #fff;
+    border-radius: 15px;
     padding: 38px;
 }
 
@@ -33,17 +34,22 @@ h2{
 }
 
 .number{
+    font-size: 25px;
     background: #28a745;
     color: white;
     padding: 0 5px;
     border-radius: 6px;
+    margin-bottom: 5px;
 }
 
-.reserved{
+.not-available{
+    font-size: 25px;
     background: #283ebd;
+    opacity: 0.6;
     color: white;
     padding: 0 5px;
     border-radius: 6px;
+    margin-bottom: 5px;
 }
 
 .icon-confirmed, .icon-unconfirmed{
@@ -51,5 +57,47 @@ h2{
 }
 
 .selected{
-    background-color: rgba(40, 92, 202, 0.801);
+    background-color: rgb(155, 219, 219);
+    color: #5c5c5c;
+}
+
+fieldset legend{
+    text-align: center;
+}
+
+#payment{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.method{
+    background-color: #b1b1b1;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 180px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.method img,
+.method h3{
+    pointer-events: none;
+}
+
+.select{
+    background-color: rgb(155, 219, 219);
+}
+
+.payment{
+    color: rgb(47, 0, 255);
+}
+
+@media(max-width: 520px){
+    #payment{
+        grid-template-columns: 1fr;
+    }
 }

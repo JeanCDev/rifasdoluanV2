@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block style %}
-<link rel="stylesheet" href="css/painel.css">
+    <link rel="stylesheet" href="css/painel.css">
 {% endblock style %}
 
 {% block content %}
@@ -13,7 +13,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Você está aqui<span class="sr-only">(current)</span></a>
                 </li>
@@ -24,67 +24,78 @@
                     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Ajuda</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Pesquise um cliente aqui" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar cliente</button>
-            </form>
         </div>
     </nav>
 
     <div class="container">
 
-        <h1 class="display-4">Clientes cadastrados {{total}}</h1>
+        <h1 class="display-4">Clientes cadastrados
+            {{total}}</h1>
+
+        {% if error %}
+            <div class="alert alert-danger desmissable fade show" role="alert">
+                {{error}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+        {% if success %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{success}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
 
         <table class="table table-striped table-hover">
             <thead class="thead-light">
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Números</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Confirmar</th>
+                    <th scope="col">Pago</th>
                 </tr>
             </thead>
             <tbody>
 
-            {% for clients in clients %}
-            
-                <tr id="{{clients.id}}" onclick="showInfo(this)">
-                    <td class="name">{{clients.name}}</th>
-                    <td class="numbers">{{clients.numbers}}</td>
-                    <td class="">
-                        {% if clients.confirmed == false %}
-                            <i class="fas fa-heart-broken icon-unconfirmed " data-toggle="popover" title="Não confirmado" data-content="Esse cliente ainda não teve o pagamento confirmado"></i>
-                        {% elseif clients.confirmed == true %}
-                            <i class="fas fa-grin-beam icon-confirmed" data-toggle="popover" title="Confirmado" data-content="Esse cliente já teve o pagamento confirmado"></i>
-                        {% endif %}
-                    </td>
-                    <td>
-                        <button class="btn btn-success lead">
-                            <i class="fas fa-check"></i>
-                        </button>
-                    </td>
-                    <td class="email">{{clients.email}}</td>
-                    <td class="phone">{{clients.phone}}</td>
-                    <td class="id">{{clients.id}}</td>
-                </tr>
+                {% for clients in clients %}
 
-            {% endfor %}
+                    <tr id="{{clients.id}}" onclick="showInfo(this)">
+                        <td class="name">{{clients.name}}</th>
+                        <td class="numbers">{{clients.numbers}}</td>
+                        <td class="">
+                            {% if clients.confirmed == false %}
+                                <i class="fas fa-heart-broken  icon-unconfirmed">
+                                    Não</i>
+                            {% elseif clients.confirmed == true %}
+                                <i class="fas fa-grin-beam icon-confirmed" false="false">
+                                    Sim</i>
+                            {% endif %}
+                        </td>
+                        <td class="email">{{clients.email}}</td>
+                        <td class="phone">{{clients.phone}}</td>
+                        <td class="id">{{clients.id}}</td>
+                        <td class="payment">{{clients.payment}}</td>
+                    </tr>
+
+                {% endfor %}
             </tbody>
         </table>
 
     </div>
 
     {% block modal %}
-    {% include 'partials/modal.html'%}
-{% endblock modal %}
-    
+        {% include 'partials/modal.html'%}
+    {% endblock modal %}
+
 {% endblock content %}
 
 {% block script %}
-<script>
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
-</script>
-<script src="js/painel.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+    <script src="js/painel.js"></script>
 {% endblock script %}

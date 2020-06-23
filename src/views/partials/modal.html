@@ -14,11 +14,17 @@
         <p class='lead modal-phone text-center'></p>
         <h1 class ="lead">Numeros adquiridos:</h1>
         <p class='lead modal-numbers text-center'></p>
+        <h1 class ="lead">Método de pagamento:</h1>
+        <p class='lead modal-payment text-center'></p>
+        
       </div>
       <div class="modal-footer">
         <form action="/painel" method="post">
-            <input type="hidden" name="update" id="hidden">
-            <button type="submit" class="btn btn-primary" id="change-status">Confirmar Pagamento</button>
+            <input type="password" class="form" name="password" id="password" placeholder="Senha para confirmar">
+            <div class="foot">
+              <input type="hidden" name="update" id="hidden">
+              <button type="submit" id="save" class="btn btn-primary" id="change-status" disabled>Confirmar Pagamento</button>
+            </div>
         </form>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       </div>

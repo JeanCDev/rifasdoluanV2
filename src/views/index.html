@@ -19,7 +19,7 @@
 
                                 <div class="container btn-presentation-group">
                                     <a href="#know-more" class="col-12 btn btn-lg btn-info btn-presentation">Saiba mais</a>
-                                    <a href="#create" class="col-12 mt-4 btn-lg btn btn-success btn-presentation">Participe</a>
+                                    <a href="/users" class="col-12 mt-4 btn-lg btn btn-success btn-presentation">Participe</a>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
             </section>
 
             <section id="parallax">
-                <a href="#" class="btn btn-lg btn-success" id="btn-parallax">Não perca essa oportunidade</a>
+                <a href="/users" class="btn btn-lg btn-success" id="btn-parallax">Não perca essa oportunidade</a>
             </section>
 
             <section id="know-more" class="bg-dark">
@@ -123,51 +123,15 @@
                         </div>
                         <div class=""></div>
                         <h3 class="display-4 text-center">Não perca a chance de participar</h3>
-
-                        <div class="form-group mt-4 row d-flex justify-content-center" id="form-user">
-
-                            <input type="text" name="name" id="user-name" placeholder="Digite seu nome" class="form-control col-8">
-
-                            <input type="email" name="email" id="user-email" placeholder="Digite seu email" class="form-control col-8">
-
-                            <input type="number" name="phone" id="user-phone" placeholder="Digite seu celular" class="form-control col-8">
-
-                            <button class="btn btn-lg btn-success col-8" onclick="openModal()">Cadastrar-se</button>
-                        </div>
+                        
+                        <button class="btn btn-lg btn-success my-5" onclick="window.location.href= '/users'">Cadastre-se agora</button>
                     </div>
                 </div>
             </section>
 
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body" id="modal-body">
-                            <!--<span class="number ml-1">
-                            </span>
-                            <span class="number ml-1">
-                                <label class="">
-                                    <input type="checkbox" class="check" name="numbers" value="001">
-                                    001
-                                </label>
-                            </span>
-                            <span class="number ml-1">
-                                <label class="">
-                                    <input type="checkbox" class="check" name="numbers" value="002">
-                                    002
-                                </label>
-                            </span>-->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success" onclick="saveClient()">Save changes</button>
-                        </div>
-                    </div>
-                </div>
+            <div id="contact">
+                <i class="fab fa-whatsapp"></i>
+                <p>Contato</p>
             </div>
         </main>
 
@@ -175,3 +139,7 @@
             {% include 'partials/footer.html' %}
         {% endblock footer %}
 {% endblock content %}
+
+{% block script %}
+    <script src="js/script.js"></script>
+{% endblock script %}

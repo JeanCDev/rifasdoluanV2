@@ -1,0 +1,16 @@
+#login-form {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    max-width: 500px;
+}
+
+#login-form div{
+    flex: 1;
+    align-items: center;
+}
+
+nav{
+    margin-bottom: 200px;
+}

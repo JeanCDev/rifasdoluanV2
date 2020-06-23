@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block style %}
-<link rel="stylesheet" href="css/users.css">
+	<link rel="stylesheet" href="css/users.css">
 {% endblock style %}
 
 {% block title %}
@@ -17,7 +17,7 @@
 
 		<h1 class="display-4 text-center">Faça seu cadastro abaixo e participe</h1>
 
-		<form action="/" method="post">
+		<form action="/saveuser" method="post">
 			<fieldset>
 				<div class="field">
 					<label for="name" class="lead">Nome</label>
@@ -37,44 +37,100 @@
 			
 			<fieldset>
 				<h2 class="display-4 text-center">Escolha seus números</h2>
-				<h3 class="text-center">Números disponíveis {{total}}</h3>
 
 				<div id="numbers" >
 
 					{% for numbers in numbers %}
-						{% if numbers.numbers.length < 3 %} 
-							<button type="button" id="{{numbers.numbers}}" class="number" onclick="handleSelectedNumbers(this)">
-							0{{numbers.numbers}}
-							</button>
-						{% else %} 
-							<button type="button" id="{{numbers.numbers}}" class="number" onclick="handleSelectedNumbers(this)">
-							{{numbers.numbers}}</button> 
-						{% endif %}
 
-					{% endfor %}
-
-					<h1>Números reservados {{reservedTotal}}</h1>
+					{% if numbers.available == true %}
 					
-					{% for reserved in reserved %}
-						{% if reserved.reserved.length < 3 %} 
-							<button type="button" id="{{reserved.id}}" class="reserved">
-							0{{reserved.number}}
+						{% if numbers.number.length < 3 %} 
+							<button type="button" id="{{numbers.number}}" class="number" onclick="handleSelectedNumbers(this)">
+							0{{numbers.number}}
 							</button>
 						{% else %} 
-							<button type="button" id="{{reserved.id}}" class="reserved">
-							{{reserved.number}}</button> 
+							<button type="button" id="{{numbers.number}}" class="number" onclick="handleSelectedNumbers(this)">
+							{{numbers.number}}</button> 
 						{% endif %}
+					{% endif %}
+
+					{% if numbers.available == false %}
+						{% if numbers.number.length < 3 %} 
+							<button type="button" id="{{numbers.number}}" class="not-available" onclick="handleSelectedNumbers(this)" disabled>
+							0{{numbers.number}}
+							</button>
+						{% else %} 
+							<button type="button" id="{{numbers.number}}" class="not-available" onclick="handleSelectedNumbers(this)" disabled>
+							{{numbers.number}}</button> 
+						{% endif %}
+
+					{% endif %}
 
 					{% endfor %}
 				
 				</div>
 				<input type="hidden" name="numbers">
 			</fieldset>			
-			
-			<button type="submit" class="btn btn-success">Concluir cadastro</button>
+
+			<fieldset class="mt-4">
+				<legend class="mb-4">Escolha o método de pagamento:</legend>
+					<div id="payment">
+						<li class="method" id="bb" data-id="Banco do Brasil">
+							<img src="/img/bb.jpg" width="50px" alt="">
+							<h3>Banco do Brasil</h3>
+						</li>
+						<li class="method" id="cx" data-id="Caixa">
+							<img src="/img/caixa.jpg" width="50px" alt="">
+							<h3>Caixa</h3>
+						</li>
+						<li class="method" id="nb" data-id="NuBank">
+							<img src="/img/nubank.png" width="50px" alt="">
+							<h3>Nubank</h3>
+						</li>
+						<li class="method" id="pp" data-id="PicPay">
+							<img src="/img/picpay.png" width="50px" alt="">
+							<h3>Picpay</h3>
+						</li>
+					</div>
+					<input type="hidden" name="payment">
+					<p class="lead text-center mt-4">Pagamento selecionado: <span class="payment">Nenhum</span></p>
+			</fieldset>
+
+			<button type="submit" class="btn btn-success btn-block mt-3" id="submit-btn">Concluir cadastro</button>
 		</form>
 
 	</main>
+	
+	{% block cadastrado %}
+		{% if saved %}
+			<div id="payment">{{payment}}</div>
+
+		<script>
+			
+			let paymentMethod = document.querySelector('#payment').innerHTML;
+
+			if(paymentMethod == 'bb'){
+				setTimeout(()=>{
+					window.location.href = `/payment/bb`;
+				}, 3000);
+			} else if(paymentMethod == 'cx'){
+				setTimeout(()=>{
+					window.location.href = `/payment/cx`;
+				}, 3000);
+			} else if(paymentMethod == 'nb'){
+				setTimeout(()=>{
+					window.location.href = `/payment/nb`;
+				}, 3000);
+			} else if(paymentMethod == 'pp'){
+				setTimeout(()=>{
+					window.location.href = `/payment/pp`;
+				}, 3000);
+			}
+
+		</script>
+			{% include 'partials/modal-cadastro.html'%}
+		{% endif %}
+	{% endblock cadastrado %}
 
 	{% block footer %}
 		{% include 'partials/footer.html'%}

@@ -1,28 +1,5 @@
-function openModal() {
-    let name = document.getElementById('user-name').value;
-    let email = document.getElementById('user-email').value;
-    let phone = document.getElementById('user-phone').value;
+const whatsApp = document.getElementById('contact');
 
-    if (name == '' || email == '' || phone == '') {
-        //alert('Todos os campos devem ser preenchidos!');
-        $('#modal').modal('show');
-    } else {
-        $('#modal').modal('show');
-    }
-    createNumberBadge()
-}
-
-function saveClient() {
-    let user = new User();
-
-
-    //bd.save(user);
-
-    $('#modal').modal('hide');
-
-    let numbers = document.getElementsByName('numbers');
-    //console.log(numbers)
-
-    console.log(user);
-}
-
+whatsApp.addEventListener('click', function(){
+    window.open('https://api.whatsapp.com/send?phone=5547984279540&text=Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20sua%20rifa');
+});

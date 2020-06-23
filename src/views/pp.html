@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+	<link rel="stylesheet" href="/css/users.css">
+{% endblock style %}
+
+{% block title %}
+	<title>Cadastre-se e concorra</title>
+{% endblock title %}
+
+{% block content %}
+    <style>
+        div {
+            margin: 25px 0 25px 0;
+            display: flex;
+            align-content: center;
+            
+            justify-content: center;
+        }
+    </style>
+	<main class="container">
+
+		<h1 class="display-4 text-center">Você escolheu pagar pelo PicPay</h1>
+
+            <div>
+                <img src="/img/picpay.png" style="justify-self: center" alt="">
+            </div>
+
+        <p class="lead ml-5">Pague pelo link <a href="">clicando aqui</a></p>
+        <p class="lead ml-5">Nome no picpay: <span style="color:blue"></p>
+
+	</main>
+{% endblock content %}
+        
+

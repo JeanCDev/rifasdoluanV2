@@ -1,4 +1,33 @@
 /* Principais*/
+#contact{
+    cursor: pointer;
+    width: 160px;
+    height: 60px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    z-index: 10;
+    text-align: center;
+    right: 20px;
+    bottom: 80px;
+}
+
+#contact i{
+    padding: 8px;
+    background-color: white;
+    border-radius: 8px 8px 0 0 ;
+    font-size: 50px;
+    color: #25d366
+}
+
+#contact p{
+    color: #fff;
+    background-color: #25d366;
+    border-radius: 0 0 8px 8px;
+    font-size: 35px;
+}
+
 #nav-top{
     background: url(../img/nav-bg.jpg) no-repeat;
     background-size: cover;

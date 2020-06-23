@@ -1,7 +1,51 @@
-<h1>{{total}}</h1>
-{% for reserved  in reserved %}
-    
-    <h1>{{reserved.number}}</h1>
+{% extends 'layout.html' %}
 
-{% endfor %}
+{% block style %}
+    <link rel="stylesheet" href="css/us.css">
+{% endblock style %}
 
+
+
+{% block content %}
+
+{% if alert %}
+    <div class="alert alert-danger" role="alert">
+        {{alert}}
+    </div>
+{% endif %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Painel de Controle</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Você está aqui<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Ir para o site da rifa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Ajuda</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5" id="login-form">
+        <div class="">
+            <p class="lead text-center">Faça seu login para acessar o painel</p>
+            <form action="/painel" method="get">
+                <input type="text" name="login" class="form-control mb-3" placeholder="Email">
+                <input type="password" name="password" class="form-control" placeholder="Senha">
+                <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}
