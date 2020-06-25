@@ -25,6 +25,36 @@ form div label{
     margin-top: 25px;
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
+.valid{
+    color: #28a745;
+    font-size: 13px;
+}
+
+.valid-input{
+    color: #28a745;
+    border: 2px solid #28a745;
+}
+
+.invalid{
+    color: #c82333;
+    font-size: 13px;
+}
+
+.invalid-input{
+    color: #c82333;
+    border: 2px solid #c82333;
+}
+
 h2{
     margin-top: 48px;
 }
@@ -35,7 +65,7 @@ h2{
 
 .number{
     font-size: 25px;
-    background: #28a745;
+    background: #0804fc;
     color: white;
     padding: 0 5px;
     border-radius: 6px;
@@ -44,7 +74,7 @@ h2{
 
 .not-available{
     font-size: 25px;
-    background: #283ebd;
+    background: #0728e4;
     opacity: 0.6;
     color: white;
     padding: 0 5px;
@@ -57,8 +87,8 @@ h2{
 }
 
 .selected{
-    background-color: rgb(155, 219, 219);
-    color: #5c5c5c;
+    background-color: rgb(81, 218, 69);
+    color: #ffffff;
 }
 
 fieldset legend{

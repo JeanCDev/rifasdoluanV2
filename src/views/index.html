@@ -64,21 +64,25 @@
                             <p class="lead mb-5">Para participar, basta fazer seu cadastro, escolher a forma de pagamento e aguardar o dia do sorteio para saber se foi o felizardo ganhador.</p>
 
                             <h2 class="display-4 text-center">Quanto custa?</h2>
-                            <p class="lead mb-5">Cada número sai por apenas
+                            <p class="lead mb-5">Cada número custa apenas
                                 <b>20 reais</b>
-                                e você pode escolhar quantos quiser para aumentar suas chances de ganhar.</p>
+                                e você pode escolher quantos quiser para aumentar suas chances de ganhar.</p>
 
                             <h2 class="display-4 text-center">Quais as formas de pagamento?</h2>
-                            <p class="lead mb-5">Você pode escolhar entre tranferência ou solicitar a emissão de um boleto para o depósito do valor de suas rifas.</p>
+                            <p class="lead mb-5">Você pode escolher entre tranferência bancária pelos bancos: <b>Banco do Brasil</b>, <b>Caixa</b>, <b>NuBank</b>, ou pagar pelo <b>PicPay</b>.</p>
 
                             <h2 class="display-4 text-center">Quando será feito o sorteio</h2>
-                            <p class="lead mb-5">O sorteio erá feito no dia
+                            <p class="lead mb-5">O sorteio será feito no dia
                                 <span style="color: red">(Ainda não sei o dia)</span>
-                                e será realizado através de um live no facebook, mas não se preocupe, pois avisaremos o ganhador através de mensagem no WhatsApp e e-mail.</p>
+                                e será realizado através de um live no facebook, mas não se preocupe, pois avisaremos tanto quando a live começar (através do e-mail), como o ganhador através de mensagem no WhatsApp e e-mail.</p>
 
                             <h2 class="display-4 text-center">E se eu morar em outra cidade?</h2>
                             <p class="lead mb-5">Se você morar em outra cidade, pode solicitar o prêmio no valor da moto, e o mesmo será enviado para você por transferência bancária. O valor do prêmio em dinheiro será de
-                                <span style="color: green">R$ 3500,00</span>.</p>
+                                <span style="color: green">
+                                    R$ 3500,00
+                                </span>.
+                            </p>
+                            <p class="text-center"><a href="">Mais informações pelo WhatsApp</a></p>
                         </div>
                     </div>
                 </div>
@@ -121,25 +125,23 @@
                         <div class="create-title text-center">
                             <h3 class="display-3 text-center">Faça seu cadastro agora mesmo</h3>
                         </div>
-                        <div class=""></div>
                         <h3 class="display-4 text-center">Não perca a chance de participar</h3>
                         
-                        <button class="btn btn-lg btn-success my-5" onclick="window.location.href= '/users'">Cadastre-se agora</button>
+                        <div>
+                            <button class="btn btn-lg btn-success my-5" onclick="window.location.href= '/users'">Cadastre-se agora</button>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <div id="contact">
-                <i class="fab fa-whatsapp"></i>
-                <p>Contato</p>
-            </div>
+            
         </main>
+
+        {% block contact %}
+            {% include 'partials/contact.html' %}
+        {% endblock contact %}
 
         {% block footer %}
             {% include 'partials/footer.html' %}
         {% endblock footer %}
 {% endblock content %}
-
-{% block script %}
-    <script src="js/script.js"></script>
-{% endblock script %}

@@ -6,18 +6,6 @@ const modalPayment = document.querySelector('.modal-payment');
 const adminPassword = document.getElementById('password').value;
 const saveButton = document.getElementById('save');
 
-function checkPassword(){
-    if(adminPassword == '' && adminPassword.lenght < 6){
-        adminPassword.classList = '.form-invalid';
-        saveButton.disabled = true;
-    } else{
-        adminPassword.classList = 'form-invalid';
-        saveButton.disabled = false;
-    }
-}
-
-checkPassword();
-
 function showInfo(event){
     $('#modal').modal('show');
 
@@ -38,10 +26,11 @@ function showInfo(event){
     modalPhone.innerHTML = userPhone;
     modalNumbers.innerHTML = userNumbers;
     modalPayment.innerHTML = userPayment;
-
-    checkPassword();
 }
 
+function showTutorial(){
+    $('#modal-ajuda').modal('show');
+}
 
 
 

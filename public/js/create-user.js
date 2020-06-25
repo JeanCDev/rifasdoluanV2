@@ -34,8 +34,10 @@ function handleSelectedNumbers(event) {
 }
 
 window.addEventListener('submit', (e) =>{
+    console.log('Qer ta dano?')
     if(name.value == '' || email.value == '' || phone.value == '' || selectedNumbers.length == 0 || paymentSelected.value == ''){
-        e.preventDefault()
+        //e.preventDefault();
+        
         alert('Preencha todos os dados, escolha pelo menos um número e a forma de pagamento para poder fazer seu cadastro.');
     } else{
         let confirmation = confirm(`

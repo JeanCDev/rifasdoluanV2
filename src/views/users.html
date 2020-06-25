@@ -15,29 +15,47 @@
 
 	<main class="container">
 
+		{% if error %}
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				<strong>Algo deu errado!</strong> {{error}}
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		{% endif %}
+
 		<h1 class="display-4 text-center">Faça seu cadastro abaixo e participe</h1>
 
-		<form action="/saveuser" method="post">
+		<form action="/payment" method="post">
 			<fieldset>
 				<div class="field">
 					<label for="name" class="lead">Nome</label>
-					<input type="text" name="name" placeholder="Digite seu nome" class="form-control">
+					<input type="text" name="name" placeholder="Digite seu nome" class="form-control" required>
+					<small class="form-text text-muted">
+						Digite seu nome completo.
+					</small>
+					
 				</div>
 
 				<div class="field">
 					<label for="email" class="lead">E-mail</label>
-					<input type="email" name="email" placeholder="Digite seu email" class="form-control">
+					<input type="email" name="email" placeholder="Digite seu email" class="form-control" required>
+					<small class="form-text text-muted">
+						Digite o E-mail que você geralmente usa.
+					</small>
 				</div>
 
 				<div class="field">
 					<label for="phone" class="lead">Celular</label>
-					<input type="number" name="phone" placeholder="Digite seu celular com DDD" class="form-control">
+					<input type="number" name="phone" placeholder="Digite seu celular com DDD" class="form-control" required>
+					<small class="form-text text-muted">
+						Digite seu número de celular completo (com DDD).
+					</small>
 				</div>
 			</fieldset>
 			
-			<fieldset>
+			<fieldset id="numbers">
 				<h2 class="display-4 text-center">Escolha seus números</h2>
-
 				<div id="numbers" >
 
 					{% for numbers in numbers %}
@@ -74,6 +92,7 @@
 
 			<fieldset class="mt-4">
 				<legend class="mb-4">Escolha o método de pagamento:</legend>
+					<div id="payment-feedback" class=""></div>
 					<div id="payment">
 						<li class="method" id="bb" data-id="Banco do Brasil">
 							<img src="/img/bb.jpg" width="50px" alt="">
@@ -100,37 +119,10 @@
 		</form>
 
 	</main>
-	
-	{% block cadastrado %}
-		{% if saved %}
-			<div id="payment">{{payment}}</div>
 
-		<script>
-			
-			let paymentMethod = document.querySelector('#payment').innerHTML;
-
-			if(paymentMethod == 'bb'){
-				setTimeout(()=>{
-					window.location.href = `/payment/bb`;
-				}, 3000);
-			} else if(paymentMethod == 'cx'){
-				setTimeout(()=>{
-					window.location.href = `/payment/cx`;
-				}, 3000);
-			} else if(paymentMethod == 'nb'){
-				setTimeout(()=>{
-					window.location.href = `/payment/nb`;
-				}, 3000);
-			} else if(paymentMethod == 'pp'){
-				setTimeout(()=>{
-					window.location.href = `/payment/pp`;
-				}, 3000);
-			}
-
-		</script>
-			{% include 'partials/modal-cadastro.html'%}
-		{% endif %}
-	{% endblock cadastrado %}
+	{% block contact %}
+        {% include 'partials/contact.html' %}
+    {% endblock contact %}
 
 	{% block footer %}
 		{% include 'partials/footer.html'%}

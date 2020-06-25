@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block title %}
+    <title>error</title>
+{% endblock title %}
+
+
+{% block style %}
+	<link rel="stylesheet" href="/css/users.css">
+    <style>
+        div {
+            margin: 25px 0 25px 0;
+            display: flex;
+            align-content: center;
+            
+            justify-content: center;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+    
+	<main class="container">
+
+        {% if error %}
+            
+
+                <h1 class="display-4 text-center">Houve um erro!</h1>
+                <p class="lead ml-5">{{error}}</p>
+
+                
+        {% endif %}
+
+	</main>
+
+    <script>
+        let modal = document.getElementById('modal');
+        setTimeout(()=>{
+            window.location.href = '/users'
+        }, 5000);
+    </script>
+
+{% endblock content %}
+
+

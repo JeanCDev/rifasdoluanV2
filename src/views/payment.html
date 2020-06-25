@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+	<link rel="stylesheet" href="/css/users.css">
+    <style>
+        div {
+            margin: 25px 0 25px 0;
+            display: flex;
+            align-content: center;
+            
+            justify-content: center;
+        }
+    </style>
+{% endblock style %}
+
+{% block title %}
+	<title>Só Falta Isso!</title>
+{% endblock title %}
+
+{% block content %}
+    
+	<main class="container">
+
+        {% if saved %}
+            {% if picpay %}
+
+                <h1 class="display-4 text-center">Você escolheu pagar pelo PicPay</h1>
+                <h2>Você comprou {{amount}} números, totalizando o valor de <span style="color:green">R${{value}},00</span></h2>
+                    <div>
+                        <img src="/img/picpay.png" style="justify-self: center" alt="">
+                    </div>
+                <p class="lead ml-5">Pague pelo link <a href="">clicando aqui</a></p>
+                <p class="lead ml-5">Nome no picpay: <span style="color:blue">Nome no picpay</p>
+
+            {% else %}
+
+                <h1 class="display-4 text-center">Você escolheu pagar pelo {{payment}}</h1>
+                <h2 class="text-center">Você comprou {{amount}} números, totalizando o valor de <span style="color:green">R${{value}},00</span></h2>
+                <p class="lead ml-5 mt-5">Agência: <span style="color:blue">{{agency}}</span></p>
+                <p class="lead ml-5">Conta: <span style="color:blue">{{account}}</span></p>
+                <p class="lead ml-5">Nome: <span style="color:blue">Luan Silva Tolentino</span></p>
+
+            {% endif %}
+        {% endif %}
+
+	</main>
+
+    {% block cadastrado %}
+		{% if saved %}
+			{% include 'partials/modal-cadastro.html'%}
+		{% endif %}
+	{% endblock cadastrado %}
+
+{% endblock content %}
+
+{% block script %}
+<script type="text/javascript">
+    window.onbeforeunload = function() {
+        return confirm(`
+            Anotou tudo? Ao sair essa página não será mais exibida, mas não se preocupe, pois todas essas informações sarão mandadas para seu email.
+
+            clique no 'OK' para sair.
+        `);
+        if(confirmation == false){e.preventDefault();}
+        else{window.location.href='/'   
+    }
+</script>
+{% endblock script %}
+        
+

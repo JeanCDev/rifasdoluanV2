@@ -23,7 +23,7 @@ nunjucks.configure('src/views', {
 });
 
 server.get('/numbers', (req, res) => {
-    db.all('SELECT * FROM numbers', function (err, rows) {
+    db.all('SELECT * FROM reserved', function (err, rows) {
         if (err) {
             return console.log(err);
         }
@@ -58,7 +58,7 @@ server.get('/users', (req, res) => {
 
 });
 
-server.post('/saveuser', (req, res) => {
+server.post('/payment', (req, res) => {
     const query = `
         INSERT INTO clients(
             name,
@@ -80,10 +80,22 @@ server.post('/saveuser', (req, res) => {
     ];
 
     if (req.body.name != '' && req.body.email != '' && req.body.phone != '' && req.body.numbers != '' && req.body.payment != '') {
+        db.run(query, values, afterInsertData);
+    }
+
+    function afterInsertData(err) {
+
+        if (err) {
+            console.log(err);
+            return res.render('error.html', {
+                    error: 'Houve um erro no cadastro, verifique se o número de telefone ou email já não estão cadastrados, ou entre em contato conosco. Se você apenas recarregou a página, fique tranquilo que os dados de pagamento serão enviados para seu e-mail.'
+                }
+            );
+        }
 
         const updateNumberStatus = req.body.numbers.split(',');
         for (let i = 0; i < updateNumberStatus.length; i++) {
-            console.log(parseInt(updateNumberStatus[i]) + 1)
+            console.log(parseInt(updateNumberStatus[i]) + 1);
             db.run(`
                     UPDATE numbers SET available = ${false} WHERE id = ${parseInt(updateNumberStatus[i]) + 1}
                     `, [], function (err) {
@@ -91,28 +103,53 @@ server.post('/saveuser', (req, res) => {
                     return console.log(err);
                 }
             });
+
+            db.run(`
+                    INSERT INTO reserved (
+                        number
+                    ) VALUES (?)
+                    `, [updateNumberStatus[i]], function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+            });
         }
 
-        function afterInsertData(err) {
-            if (err) {
-                console.log(err);
-                return res.send('Erro de cadastro');
-            }
-
-            if(req.body.payment = 'Banco do Brasil'){
-                return res.render('payment.html', { 
-                    saved: true, 
-                    payment: 'bb' });
-            } else if(req.body.payment = 'Caixa'){
-                return res.render('users.html', { saved: true, payment: 'cx' });
-            } else if(req.body.payment = 'NuBank'){
-                return res.render('users.html', { saved: true, payment: 'nb' });
-            } else{
-                return res.render('users.html', { saved: true, payment: 'pp' });
-            }
+        if (req.body.payment == 'Banco do Brasil') {
+            return res.render('payment.html', {
+                saved: true,
+                payment: 'Banco do Brasil',
+                agency: '5214-0',
+                account: '13.559-3',
+                amount: updateNumberStatus.length,
+                value: updateNumberStatus.length * 20
+            });
+        } else if (req.body.payment == 'Caixa') {
+            return res.render('payment.html', {
+                saved: true,
+                payment: 'Caixa',
+                agency: '3830',
+                account: '17.647-0',
+                amount: updateNumberStatus.length,
+                value: updateNumberStatus.length * 20
+            });
+        } else if (req.body.payment == 'NuBank') {
+            return res.render('payment.html', {
+                saved: true,
+                payment: 'Nubank',
+                agency: '0001',
+                account: '96528742-1',
+                amount: updateNumberStatus.length,
+                value: updateNumberStatus.length * 20
+            });
+        } else {
+            return res.render('payment.html', {
+                saved: true,
+                picpay: true,
+                amount: updateNumberStatus.length,
+                value: updateNumberStatus.length * 20
+            });
         }
-
-        db.run(query, values, afterInsertData);
     }
 });
 

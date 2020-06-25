@@ -8,51 +8,51 @@ module.exports = db;
 //         CREATE TABLE IF NOT EXISTS clients(
 //             id INTEGER PRIMARY KEY AUTOINCREMENT,
 //             name TEXT,
-//             email TEXT,
-//             phone TEXT,
+//             email TEXT NOT NULL UNIQUE,
+//             phone TEXT NOT NULL UNIQUE,
 //             numbers TEXT NOT NULL UNIQUE,
 //             payment TEXT,
 //             confirmed BOOLEAN
 //         )
 //     `);
     
-//     const query = `
-//             INSERT INTO clients(
-//                 name,
-//                 email,
-//                 phone,
-//                 numbers,
-//                 payment,
-//                 confirmed
-//             ) VALUES (?, ?, ?, ?, ?, ?)
-//     `;
-//     const values = [
-//         'Name',
-//         'Email',
-//         'Phone',
-//         'Numbers',
-//         'Payment',
-//         true
-//     ];
+    // const query = `
+    //         INSERT INTO clients(
+    //             name,
+    //             email,
+    //             phone,
+    //             numbers,
+    //             payment,
+    //             confirmed
+    //         ) VALUES (?, ?, ?, ?, ?, ?)
+    // `;
+    // const values = [
+    //     'Name',
+    //     'Email',
+    //     'Phone',
+    //     'Numbers',
+    //     'Payment',
+    //     true
+    // ];
     
-//     function afterInsertData(err){
-//         if(err){
-//             return console.log(err);
-//         }
-//         console.log('Cadastrado');
-//         console.log(this);
-//     }
-//     db.run(query, values, afterInsertData);
+    // function afterInsertData(err){
+    //     if(err){
+    //         return console.log(err);
+    //     }
+    //     console.log('Cadastrado');
+    //     console.log(this);
+    // }
+    // db.run(query, values, afterInsertData);
 // });
 
-// //numeros
+//numeros
 // for (i = 000; i < 500; i++) {
 
 // db.serialize(()=>{
 
 //     // db.run(`
 //     //      DELETE FROM numbers WHERE id = ? 
-//     // `, [1502]);
+//     // `, []);
 
 //     db.run(`
 //         CREATE TABLE IF NOT EXISTS numbers(
@@ -82,3 +82,14 @@ module.exports = db;
 // });
 
 // }
+
+// db.serialize(()=>{
+
+//     db.run(`
+//         CREATE TABLE IF NOT EXISTS reserved(
+//             id INTEGER PRIMARY KEY AUTOINCREMENT,
+//             number TEXT NOT NULL UNIQUE
+//         )
+//     `);
+
+// });
