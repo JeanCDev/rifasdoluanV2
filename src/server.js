@@ -3,12 +3,12 @@ const server = express();
 const db = require('./database/db.js');
 
 const meUser = {
-    user: 'jeangames15@gmail.com',
-    password: '984952690'
+    user: 'useremail@hardcode.com',
+    password: '123456789'
 };
 const luanUser = {
-    user: 'luantolentino68@gmail.com',
-    password: '984279540'
+    user: 'useremail2@hardcode.com',
+    password: '123456789'
 }
 
 server.use(express.static('public'));
